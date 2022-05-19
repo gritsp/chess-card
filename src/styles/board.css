@@ -1,0 +1,22 @@
+#board {
+  display: grid;
+  grid-template-columns: 20px repeat(5,100px);
+  grid-template-rows: repeat(8,100px) 20px;
+  width: 520px;
+  height: 820px;
+  background-color: whitesmoke;
+  
+}
+
+#board .tile {
+  width: 100px;
+  height: 100px;
+}
+
+#board .tile-white {
+  background-color: white;
+}
+
+#board .tile-black {
+  background-color: gainsboro;
+}

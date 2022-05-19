@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./styles/App.css"
+import ChessBoard from "./components/board";
+import { useEffect, useState } from "react";
+var boards = new Array(8)
+    for (let i = 0; i<boards.length; i++){
+      boards[i] = new Array(5)
+    }
 function App() {
+  const [board,setBoard] = useState(boards)
+  
+  const insert = ({text,row,col}) =>{
+    // console.log(board)
+    // if(!board) return
+    let temp = [...board]
+    temp[row][col] = text
+    console.log('temp',temp)
+    setBoard(temp)
+    // console.log(board)
+  }
+
+  // useEffect(()=>{
+  //   insert({text:'king',row:'0',col:'2'})
+  // },[])
+  
+  if(!board) return <>loading...</>
+  // insert({text:'king',row:'0',col:'2'})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app">
+      <ChessBoard board={board}/>
     </div>
   );
 }
