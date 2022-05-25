@@ -7,20 +7,25 @@ var boards = new Array(8)
     }
 function App() {
   const [board,setBoard] = useState(boards)
+  const [moveTo,setMoveTo] = useState()
+
+  const onMove = (value)=>{
+    console.log(value)
+    setMoveTo(true)
+  }
   
   const insert = ({text,row,col}) =>{
     // console.log(board)
-    // if(!board) return
     let temp = [...board]
     temp[row][col] = text
-    console.log('temp',temp)
+    // console.log('temp',temp)
     setBoard(temp)
-    // console.log(board)
   }
 
-  // useEffect(()=>{
-  //   insert({text:'king',row:'0',col:'2'})
-  // },[])
+  useEffect(()=>{
+    insert({text:'king',row:'0',col:'2'})
+    insert({text:'knight',row:'7',col:'2'})
+  },[])
   
   if(!board) return <>loading...</>
   // insert({text:'king',row:'0',col:'2'})

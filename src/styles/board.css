@@ -15,8 +15,16 @@
 
 #board .tile-white {
   background-color: white;
+  text-align: center;
+
 }
 
 #board .tile-black {
+  display: inline-block;
   background-color: gainsboro;
+  text-align: center;
+}
+
+#board .tile-hover:hover{
+  background-color: rgb(113, 113, 113) !important;
 }
